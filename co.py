@@ -12,13 +12,13 @@ from linearmodels import RandomEffects
 from linearmodels.panel.results import compare
 from  linearmodels import IV2SLS
 
-new=pd.read_csv('coEmissions.csv',header=0, index_col=0)
-popDensity=pd.read_csv('population.csv',header=0,index_col=0)
-totalPopulation=pd.read_csv('totalPop.csv',header=0,index_col=0)
+new=pd.read_csv('data/coEmissions.csv',header=0, index_col=0)
+popDensity=pd.read_csv('data/population.csv',header=0,index_col=0)
+totalPopulation=pd.read_csv('data/totalPop.csv',header=0,index_col=0)
 new = new.transpose()
 new.index = pd.to_datetime(new.index)
 new = new.apply(pd.to_numeric, errors='coerce')
-gdp=pd.read_csv('1gdpkor.csv', header=0,index_col=0)
+gdp=pd.read_csv('data/1gdpkor.csv', header=0,index_col=0)
 gdp= gdp.transpose()
 gdp.index = pd.to_datetime(gdp.index)
 new = new.groupby(pd.Grouper(freq='Y')).mean()
